@@ -68,8 +68,8 @@ export function createBoard(rows, columns) {
     const board = document.createElement("div");
     const boardSize =
         boardSettings.tileSize * columns + boardSettings.tileGap * (columns - 1);
-    board.style.width = `min(50vh, 90vw)`;
-    board.style.height = `min(50vh, 90vw)`;
+    board.style.width = `min(50vh, 80vw)`;
+    board.style.height = `min(50vh, 80vw)`;
     board.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
     board.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 

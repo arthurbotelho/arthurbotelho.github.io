@@ -48,10 +48,10 @@
 }
 
 #board-container {
-    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #board-container h1 {
@@ -62,7 +62,7 @@
 }
 
 #main-board {
-    margin: 0 20px;
+    margin: 0;
     display: grid;
     column-gap: var(--gap);
     row-gap: var(--gap);
@@ -74,15 +74,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: max(50vh, 90vw);
+    width: min(50vh, 90vw);
     margin: 30px 0;
-    height: max(100px, calc(100vw/8));
+    height: min(200px, calc(100vw/8));
     max-height: 300px;
     min-height: 100px;
 }
 
 #controls {
-    width: 200px;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -90,7 +89,7 @@
 }
 
 #controls button {
-    width: 90%;
+    width: 200px;
     font-size: 1.5rem;
     border-radius: 1rem;
     border: none;
