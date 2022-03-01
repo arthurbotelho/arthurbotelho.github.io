@@ -1,0 +1,18 @@
+{
+    "name": "magic-squares",
+    "version": "1.0.0",
+    "description": "15-squares puzzle but more",
+    "main": "index.js",
+    "scripts": {
+        "dev": "http-server -c-1 -p 3000 ."
+    },
+    "keywords": [
+        "15-puzzle",
+        "magic-squares"
+    ],
+    "author": "Arthur Botelho",
+    "license": "ISC",
+    "dependencies": {
+        "http-server": "^14.0.0"
+    }
+}

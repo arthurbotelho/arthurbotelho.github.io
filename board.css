@@ -1,0 +1,225 @@
+:root {
+    --gap: 15px;
+    --animation-duration: 0.3s;
+    --board-width: 600px;
+    /*  color definitions */
+    --main-text-color: #f5f5f5;
+    --main-color: #ff5566;
+    --tile-background: #402f5b;
+}
+
+.author {
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.author img {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    filter: invert(1);
+}
+
+.author a,
+.author a:visited {
+    padding: 10px 0;
+    display: inline-flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 230px;
+    color: var(--main-text-color);
+    text-decoration: none;
+    background-color: var(--main-color);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.author span {
+    display: inline-block;
+    line-height: 50px;
+}
+
+.author a:hover {
+    filter: brightness(0.9);
+    transition: all 0.2s ease-in-out;
+}
+
+#board-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board-container h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    color: var(--main-text-color);
+}
+
+#main-board {
+    margin: 0;
+    display: grid;
+    column-gap: var(--gap);
+    row-gap: var(--gap);
+    background-color: #57407c;
+    border-radius: 10px;
+}
+
+#game-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 500px;
+    margin: 30px 0;
+    height: 100px;
+}
+
+#controls {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#controls button {
+    width: 90%;
+    height: 100px;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--main-color);
+    color: var(--main-text-color);
+    transition: all 0.2s ease-in-out;
+}
+
+#controls button:hover {
+    filter: brightness(0.9);
+    cursor: pointer;
+}
+
+#score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 250px;
+}
+
+#score>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: var(--main-color);
+    color: var(--main-text-color);
+    font-size: 2rem;
+    font-weight: normal;
+    border-radius: 10px;
+}
+
+#score>div>span.title {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.tile-background {
+    background-color: var(--tile-background);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    font-size: 4rem;
+}
+
+.tile span {
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    line-height: 100%;
+    font-weight: 600;
+    transform: translate(-50%, -50%);
+    text-shadow: -4px 2px 2px #00000033;
+}
+
+.inplace {
+    background-color: #ff872b;
+    z-index: 10;
+}
+
+.outplace {
+    background-color: #6ac6b8;
+    z-index: 10;
+}
+
+.empty-tile {
+    background-color: var(--tile-background);
+}
+
+.tile:hover {
+    cursor: pointer;
+}
+
+.slidedown {
+    animation: slideDown var(--animation-duration) linear;
+}
+
+.slideup {
+    animation: slideUp var(--animation-duration) linear;
+}
+
+.slideleft {
+    animation: slideLeft var(--animation-duration) linear;
+}
+
+.slideright {
+    animation: slideRight var(--animation-duration) linear;
+}
+
+@keyframes slideDown {
+    from {
+        bottom: calc(100% + var(--gap));
+    }
+    to {
+        bottom: 0;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        top: calc(100% + var(--gap));
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        left: calc(100% + var(--gap));
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        right: calc(100% + var(--gap));
+    }
+    to {
+        right: 0;
+    }
+}
