@@ -13,6 +13,7 @@
     /* Internet Explorer/Edge */
     user-select: none;
     /* Non-prefixed version, currently supported by Chrome and Opera */
+    font-size: 100%;
 }
 
 body {
