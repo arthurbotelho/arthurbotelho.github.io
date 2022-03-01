@@ -66,19 +66,10 @@ function shuffleArray(array) {
 }
 export function createBoard(rows, columns) {
     const board = document.createElement("div");
-    const root = document.documentElement;
-    root.style.setProperty(
-        "--board-width",
-        boardSettings.tileSize * columns +
-        boardSettings.tileGap * (columns - 1) +
-        "px"
-    );
-    board.style.width =
-        boardSettings.tileSize * columns +
-        boardSettings.tileGap * (columns - 1) +
-        "px";
-    board.style.height =
-        boardSettings.tileSize * rows + boardSettings.tileGap * (rows - 1) + "px";
+    const boardSize =
+        boardSettings.tileSize * columns + boardSettings.tileGap * (columns - 1);
+    board.style.width = `min(${boardSize}px, 100vw)`;
+    board.style.height = `min(${boardSize}px, 100vw)`;
     board.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
     board.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 
