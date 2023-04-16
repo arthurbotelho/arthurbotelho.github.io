@@ -16,9 +16,15 @@ const COLORS = {
   certo: "var(--right)",
 };
 
+const GAME_STATE = {
+  STOP: "STOP",
+  RUNNING: "RUNNING",
+};
+
 const game = {
   time: 0,
   timer: null,
+  status: GAME_STATE.STOP,
 };
 
 // GAME LOGIC
@@ -27,7 +33,11 @@ export function tryPassword(e) {
   const value = e.target.value;
 
   //enter keyCode is 13
-  if (keyCode === 13 && value.length === PASSWORD_LENGTH) {
+  if (
+    keyCode === 13 &&
+    value.length === PASSWORD_LENGTH &&
+    game.status === GAME_STATE.RUNNING
+  ) {
     if (!game.timer) startTimer();
     makeNewGuess(value);
     e.target.value = "";
@@ -59,6 +69,7 @@ export function resetGame() {
   PASSWORD = generatePassword();
   GUESSES_COUNT = MAX_GUESSES;
   updateGuessesCount(GUESSES_COUNT);
+  game.status = GAME_STATE.RUNNING;
 }
 
 function updateGuessesCount(newCount) {
@@ -207,6 +218,7 @@ function winGame() {
   document.querySelectorAll("#modal-win #senha-correta").forEach((el) => {
     el.innerHTML = PASSWORD.join("");
   });
+  game.status = GAME_STATE.STOP;
   modal.showModalWindow("modal-win");
 }
 
@@ -215,5 +227,6 @@ function loseGame() {
   document.querySelectorAll("#modal-lose #senha-correta").forEach((el) => {
     el.innerHTML = PASSWORD.join("");
   });
+  game.status = GAME_STATE.STOP;
   modal.showModalWindow("modal-lose");
 }
