@@ -127,7 +127,6 @@ function countWellPlaced(guess) {
 function countRights(guess) {
   let rights = 0;
   const passwordCopy = [...PASSWORD];
-  console.info(guess);
   guess.forEach((digit) => {
     if (passwordCopy.indexOf(digit) > -1) {
       passwordCopy.splice(passwordCopy.indexOf(digit), 1);
@@ -205,7 +204,7 @@ function renderNewGuess(guess) {
 
 function winGame() {
   clearInterval(game.timer);
-  document.querySelectorAll("#modal-lose #senha-correta").forEach((el) => {
+  document.querySelectorAll("#modal-win #senha-correta").forEach((el) => {
     el.innerHTML = PASSWORD.join("");
   });
   modal.showModalWindow("modal-win");
