@@ -1,0 +1,65 @@
+#como_jogar h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+#como_jogar img {
+  width: 50%;
+}
+
+.modal-fader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 99998;
+  background: rgba(0, 0, 0, 0.8);
+}
+.modal-fader.active {
+  display: block;
+}
+
+.modal-window {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 99999;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+.modal-window.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+.modal-window h1,
+.modal-window h2,
+.modal-window h3,
+.modal-window h4,
+.modal-window h5,
+.modal-window h6 {
+  margin: 0;
+}
+
+.modal-btn {
+  margin: 10px 0 0;
+  background: #36a5a5;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+}

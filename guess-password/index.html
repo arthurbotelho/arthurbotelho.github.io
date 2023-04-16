@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./board.css" />
+    <link rel="stylesheet" href="./modal.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.png" />
+    <meta property="og:title" content="MAGIC SQUARES" />
+  </head>
+
+  <body>
+    <noscript> Precisamos do HTML </noscript>
+    <div id="app">
+      <div id="board-container">
+        <h1 class="open-modal" data-target="como_jogar">QUAL É A SENHA?</h1>
+        <div id="game-header">
+          <div id="controls">
+            <div id="counter">
+              <span class="title">CHUTES </span>
+              <span id="guess-counter" class="counter">0</span>
+            </div>
+
+            <button id="newGameBtn">NOVO JOGO</button>
+
+            <div id="time-count">
+              <span class="title">TEMPO </span>
+              <span id="timer">00:00</span>
+            </div>
+          </div>
+        </div>
+        <div id="main-board"></div>
+      </div>
+      <div class="footer">
+        <div id="guess-input">
+          <input
+            id="guess"
+            type="text"
+            maxlength="4"
+            oninput="this.value = this.value.replace(/[^0-9.]/g,
+          '').replace(/(\..*)\./g, '$1');"
+          />
+        </div>
+        <a href="https://github.com/arthurbotelho">
+          <img src="assets/github-icon.png" alt="github-logo" />
+          <span>@ArthurBotelho</span>
+        </a>
+      </div>
+
+      <div id="como_jogar" class="modal-window">
+        <h2>Como Jogar</h2>
+        <p>O objetivo é simples quebrar a senha</p>
+        <p>
+          A senha tem 4 dígitos distintos.
+          <br />
+          A Cada palpite você recebe informações sobre a senha
+          <br />
+          A primeira coluna indica quantos números fazem parte da senha
+          <br />
+          A segunda Coluna indica quantos números estão na senha e na posição
+          correta
+          <br />
+          <br />
+          Você pode clicar nos números para marcar e desmarcar os números que
+          você acha que fazem parte da senha
+        </p>
+        <img src="./assets/game-screenshot.png" alt="Print imagem do jogo" />
+        <button class="modal-btn modal-hide">Fechar</button>
+      </div>
+
+      <div id="modal-win" class="modal-window">
+        <h2>Parabéns</h2>
+        <p>Você venceu o jogo</p>
+        <p>A senha era: <span id="senha-correta"></span></p>
+        <button class="modal-btn modal-hide">Fechar</button>
+      </div>
+
+      <div id="modal-lose" class="modal-window">
+        <h2>Que pena</h2>
+        <p>Você perdeu o jogo</p>
+        <p>A senha era: <span id="senha-correta"></span></p>
+        <button class="modal-btn modal-hide">Fechar</button>
+      </div>
+
+      <div class="modal-fader"></div>
+    </div>
+    <script src="./index.js" type="module"></script>
+    <script src="./modal.js" type="module"></script>
+  </body>
+</html>
