@@ -4,10 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.png" />
+    <link rel="stylesheet" href="./index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,400;1,600&family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <title>Arthur Botelho</title>
   </head>
   <body>
-    <a href="./slide-puzzle/">15 Puzzle</a>
-    <a href="./guess-password/">Qual é a senha?</a>
+    <div class="profile-container">
+      <div class="profile">
+        <div class="info">
+          <h1>Arthur Botelho</h1>
+          <p>Backend Engineer</p>
+          <p>
+            Gosto de puzzles! E esses são apenas alguns que fiz para passar o
+            tempo
+          </p>
+        </div>
+
+        <div id="projects">
+          <div class="card">
+            <a href="./guess-password/">
+              <img src="./assets/guess-password-screenshot.png" alt="Avatar" />
+              <div class="container">
+                <h4><b>Qual é a senha?</b></h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./slide-puzzle/">
+              <img src="./assets/sliding-puzzle-screenshot.png" alt="Avatar" />
+              <div class="container">
+                <h4><b>15 Puzzle</b></h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
