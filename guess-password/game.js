@@ -27,6 +27,10 @@ const game = {
   status: GAME_STATE.STOP,
 };
 
+function getElement(id) {
+  return document.getElementById(id);
+}
+
 // GAME LOGIC
 export function tryPassword(e) {
   const keyCode = e.keyCode;
@@ -60,7 +64,7 @@ function resetTimer() {
 }
 
 export function resetGame() {
-  BOARD = document.getElementById("main-board");
+  BOARD = getElement("main-board");
   if (BOARD) BOARD.innerHTML = "";
 
   resetTimer();
@@ -73,7 +77,7 @@ export function resetGame() {
 }
 
 function updateGuessesCount(newCount) {
-  const guessesCount = document.getElementById("guess-counter");
+  const guessesCount = getElement("guess-counter");
   guessesCount.innerHTML = newCount;
 }
 
@@ -171,7 +175,7 @@ function createTile(number) {
 }
 
 function renderTime() {
-  const timer = document.getElementById("timer");
+  const timer = getElement("timer");
   timer.innerText = `${secondsToMinNotation(game.time)}`;
 }
 

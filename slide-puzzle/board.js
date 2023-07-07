@@ -16,6 +16,15 @@ const boardSettings = {
   tileSize: 100,
   tileGap: 15,
 };
+/***
+ *
+ * HELPERS
+ *
+ * ***/
+
+function getElement(id) {
+  return document.getElementById(id);
+}
 
 function isSolvable() {
   var product = 1;
@@ -106,10 +115,10 @@ export function createBoard(rows, columns) {
 }
 
 function renderBoardFromArray() {
-  const moveCounter = document.getElementById("move-counter");
+  const moveCounter = getElement("move-counter");
   moveCounter.innerText = game.moveCount;
 
-  const timer = document.getElementById("timer");
+  const timer = getElement("timer");
   timer.innerText = `${game.time} s`;
 
   const elements = document.querySelectorAll("[id^=tile]");
@@ -130,7 +139,7 @@ function renderBoardFromArray() {
 
 export function renderBoard(movement = null) {
   const elements = document.querySelectorAll("[id^=tile]");
-  const moveCounter = document.getElementById("move-counter");
+  const moveCounter = getElement("move-counter");
   moveCounter.innerText = game.moveCount;
   const rows = game.settings.rows;
   const columns = game.settings.columns;
@@ -201,7 +210,7 @@ function startTimer() {
   game.time = 0;
   game.timer = setInterval(() => {
     game.time++;
-    const timer = document.getElementById("timer");
+    const timer = getElement("timer");
     timer.innerText = `${game.time} s`;
   }, 1000);
 }
@@ -228,7 +237,9 @@ const renderListener = new Proxy(renderState, {
     if (prop === "modificated") {
       if (isSorted()) {
         clearInterval(game.timer);
-        alert("You win! Moves: " + game.moveCount);
+        setTimeout(() => {
+          alert("You win! Moves: " + game.moveCount);
+        }, 300);
       }
       renderBoard(value);
     }
